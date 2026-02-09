@@ -1,0 +1,46 @@
+
+{% extends "layout.html"%}
+{% block body %}
+<table>
+  <tr>
+    <td style="margin:1em;padding:30px">
+  <div class="form-panel one form">
+        <div class="form-header">
+            <h1>Vibe Scanner for Job Descriptions</h1>
+        </div>
+
+        <div class="form-content">
+            <form action="/result" method="post">
+                <div class="form-group">
+                <label for="jd_text">Please input a Job Description:</label>
+                <textarea id="jd_text" name="jd_text" rows="4" cols="50"></textarea>
+                </div>
+                <div class="form-group">
+                <button id="submit" type="submit">Analyze!</button>
+                </div>
+            </form>
+        </div>
+    </div>
+  </td>
+  <td >
+      {% if message %}
+        <div id="result" class="form-header scrollable-content">
+        <center><p> {{  message|safe}} </p> </center>
+        </div>
+      {% endif %}
+  </td> 
+</tr>
+</table>
+    <script>
+      //Select button by id
+      const MyButton = document.getElementById('submit');
+      //Add on click listener for button
+      MyButton.addEventListener('click', function() {
+          //Select (h1) heading by id, and then change it's value to (bananas)
+          document.getElementById('submit').innerText = "Processing..."
+      })
+  </script>
+
+
+
+{% endblock %} 
