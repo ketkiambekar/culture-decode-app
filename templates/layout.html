@@ -286,6 +286,22 @@ body {
   color:black;
   word-wrap: break-word;
 }
+
+@media screen and (max-width: 600px) {
+  table thead {
+    display: none;
+  }
+  table td {
+    display: flex;
+  }
+  
+  table td::before {
+    content: attr(label);
+    font-weight: bold;
+    width: 120px;
+    min-width: 120px;
+  }
+}
 </style>
 <body>
 {% block body%}
