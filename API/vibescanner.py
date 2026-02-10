@@ -18,7 +18,7 @@ class VibeScanner:
             "sovereign": ["autonomy", "dissent", "first principles", "high-variance", "sovereign", "unconventional"]
         }
 
-    def analyze_jd(self, jd_text: str) -> Dict:
+    def analyze_jd(self, jd_text: str):
         """
         Analyzes a JD for psychological entrainment and 'Borg' markers.
         """
