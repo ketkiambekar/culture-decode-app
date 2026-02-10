@@ -2,6 +2,7 @@ import os
 import re
 from dotenv import load_dotenv
 from google import genai
+from typing import Dict
 import json
 # Using a hypothetical wrapper for your chosen LLM (e.g., Gemini or OpenAI)
 #from engine_core import SovereignLLM 
