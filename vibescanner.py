@@ -40,7 +40,7 @@ class VibeScanner:
         #analysis = os.getenv("temp_text")
         analysis = self.client.models.generate_content(model=self.model, contents=prompt)
         
-        if analysis.text:
+        if analysis and analysis.text:
             return self.format_response(analysis.text)
         else:
             return None
@@ -62,10 +62,11 @@ class VibeScanner:
             response.append(str(data["friction_score"]) )
             response.append("<br/><br/>")        
             
-            response.append("<h1>Translate corporate terms (e.g., 'Moving as one' -> 'Hive Mind requirement')</h1><br/>")
-            for k,v in data["translations"].items():                      
-                response.append("<b>{0}</b> -> {1}".format(k,v))
-                response.append("<br/><br/>")
+            if data["translations"] and len(data["translations"].items()) >0:
+                response.append("<h1>Translate corporate terms (e.g., 'Moving as one' -> 'Hive Mind requirement')</h1><br/>")
+                for k,v in data["translations"].items():                      
+                    response.append("<b>{0}</b> -> {1}".format(k,v))
+                    response.append("<br/><br/>")
             
             response.append("<h1>Vibe Type</h1>")           
             response.append(data["vibe_type"])
